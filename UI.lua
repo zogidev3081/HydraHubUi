@@ -1,5 +1,5 @@
-pcall(function()
 local UILibrary = {}
+pcall(function()
 --// Modules
 
 local function getObjGen()
