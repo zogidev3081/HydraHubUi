@@ -3238,6 +3238,7 @@ end
 
 function UILibrary.new(gameName, userId, rank)
     local GUI = Instance.new("ScreenGui")
+    getgenv().SuperNova_GUI = GUI
     if (syn and syn.protect_gui) then syn.protect_gui(GUI) end
     GUI.Name = HttpService:GenerateGUID(false)
     if (gethui and (gethui() ~= nil)) then
