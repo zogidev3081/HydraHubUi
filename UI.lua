@@ -3238,9 +3238,13 @@ end
 
 function UILibrary.new(gameName, userId, rank)
     local GUI = Instance.new("ScreenGui")
+    if (syn and syn.protect_gui) then syn.protect_gui(GUI) end
     GUI.Name = HttpService:GenerateGUID(false)
-    GUI.Parent =
-        RunService:IsStudio() == false and game:GetService("CoreGui") or LocalPlayer:WaitForChild("PlayerGui")
+    if (gethui and (gethui() ~= nil)) then
+        GUI.Parent = gethui()
+    else
+        GUI.Parent = RunService:IsStudio() == false and game:GetService("CoreGui").RobloxGui
+    end
     GUI.ResetOnSpawn = false
     GUI.ZIndexBehavior = Enum.ZIndexBehavior.Global
 
